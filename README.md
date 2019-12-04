@@ -11,3 +11,15 @@ There are four principles that APIs follow:
     spring-boot-starter-web         - This starter pack is used for web application development and automatically adds libraries like Spring MVC, REST, Tomcat, and Jackson.
     com.h2database                  - This starter pack is used for the H2 in-memory database.
     spring-boot-starter-data-jpa    - This starter pack includes JDBC, Hibernate, Transactions API, JPA, and Aspects.
+
+### Annotation	Description
+
+##### @Entity
+This marks a Java class as an entity, which means it will be persisted to the database. Typically, an entity maps to a database table and the table contains rows that represent that given entity.
+
+##### @RestController
+This marks a class as a REST API. 
+@RestController is a convenience annotation that combines @Controller and @ResponseBody.
+
+##### @GetMapping
+This annotation handles HTTP GET requests and acts as a shortcut for @RequestMapping (method = RequestMethod.GET).
