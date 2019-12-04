@@ -1,11 +1,13 @@
 package com.muditasoft.springbootrestfullapis.service.impl;
 
 import com.muditasoft.springbootrestfullapis.entity.Dog;
+import com.muditasoft.springbootrestfullapis.exceptions.DogNotFoundException;
 import com.muditasoft.springbootrestfullapis.repository.DogRepository;
 import com.muditasoft.springbootrestfullapis.service.DogService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DogServiceImpl implements DogService {
@@ -28,7 +30,9 @@ public class DogServiceImpl implements DogService {
 
     @Override
     public String retrieveDogBreedById(Long id) {
-        return dogRepository.retrieveDogBreedById(id);
+        Optional<String> optionalBreed = Optional.ofNullable(dogRepository.retrieveDogBreedById(id));
+        String breed = optionalBreed.orElseThrow(DogNotFoundException::new);
+        return breed;
     }
 
     @Override
